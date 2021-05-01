@@ -1,2 +1,2 @@
 - Hi, I’m Wayne.
-- My research interests include simulation-based performance evaluation and optimization of buildings energy conservation, Algorithm Optimization based on Machine Learning, Data Mining, Big Data, Intelligent Automation, Energy-efficient Systems, etc.
+- My research interests include simulation-based performance evaluation and optimization of buildings energy conservation, Algorithm Optimization, Machine Learning, Data Mining, Intelligent Automation, Energy-efficient Systems, etc.
