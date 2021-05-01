@@ -1,2 +1,2 @@
 - Hi, I’m Wayne.
-- I’m interested in Machine Learning, Data Analysis, Algorithm Optimization, simulation-based performance evaluation and optimization of buildings energy conservation, thermal comfort requirements in buildings, and Chinese calligraphy artworks, etc.
+- My research interests include simulation-based performance evaluation and optimization of buildings energy conservation, Algorithm Optimization based on Machine Learning, Data Mining, Big Data, Intelligent Automation, Energy-efficient Systems, etc.
