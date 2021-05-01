@@ -1,2 +1,2 @@
-- 👋 Hi, I’m Wayne
-- 👀 I’m interested in Machine Learning, Data Analysis, Algorithm Optimization, simulation-based performance evaluation and optimization of buildings energy conservation, thermal comfort requirements in buildings, and Chinese calligraphy artworks, etc.
+- Hi, I’m Wayne.
+- I’m interested in Machine Learning, Data Analysis, Algorithm Optimization, simulation-based performance evaluation and optimization of buildings energy conservation, thermal comfort requirements in buildings, and Chinese calligraphy artworks, etc.
