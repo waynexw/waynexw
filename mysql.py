@@ -21,3 +21,5 @@ sqlformula = "Insert into employee(name,sal) values(%s,%s)"//'values has placeho
 employees = [("harshit",200000),("rahul", 30000),("avinash", 40000),("amit", 50000),]//Created an array of emplpoyees
 mycursor.executemany(sqlformula, employees)//Passing the data
 mydb.commit()//SQL statement used for saving the changes
+
+db.close
