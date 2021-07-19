@@ -1,2 +1,3 @@
 - Hi, I’m Wayne.
 - My research interests include simulation-based performance evaluation and optimization of buildings energy conservation, Algorithm Optimization, Machine Learning, Data Mining, Intelligent Automation, Energy-efficient Systems, etc.
+- Of particular recent work, our team is focusing on simulation-based performance evaluation and optimization of building energy efficiency via the Particle Swarm Optimization (PSO) algorithm.
