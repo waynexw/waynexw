@@ -51,3 +51,22 @@ mycol = mydb["customers"]
 
 for x in mycol.find({},{ "address": 0 }):
   print(x)
+  
+  import mysql.connector
+
+# Select the 5 first records in the "customers" table  
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="yourusername",
+  password="yourpassword",
+  database="mydatabase"
+)
+
+mycursor = mydb.cursor()
+
+mycursor.execute("SELECT * FROM customers LIMIT 5")
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+  print(x)
