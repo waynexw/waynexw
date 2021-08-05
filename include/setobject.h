@@ -45,3 +45,14 @@ mycursor.executemany(sql, val)
 mydb.commit()
 
 print(mycursor.rowcount, "was inserted.")
+
+# Create a Dictionary
+    
+mylist = ["a", "b", "a", "c", "c"]
+mylist = list( dict.fromkeys(mylist) )
+print(mylist)
+    
+# print the list
+mylist = ["a", "b", "a", "c", "c"]
+mylist = list(dict.fromkeys(mylist))
+print(mylist)
