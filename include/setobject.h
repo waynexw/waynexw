@@ -56,3 +56,7 @@ print(mylist)
 mylist = ["a", "b", "a", "c", "c"]
 mylist = list(dict.fromkeys(mylist))
 print(mylist)
+
+# Reverse the string "Hello World":
+txt = "Hello World"[::-1]
+print(txt)
