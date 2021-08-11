@@ -1,3 +1,4 @@
+# drop tables
 import mysql.connector
 
 mydb = mysql.connector.connect(
@@ -34,6 +35,7 @@ mydb.commit()
 print(mycursor.rowcount, "record(s) affected")
 
 
+# find function
 import pymongo
 
 myclient = pymongo.MongoClient("mongodb://localhost:27017/")
@@ -52,8 +54,7 @@ mycol = mydb["customers"]
 for x in mycol.find({},{ "address": 0 }):
   print(x)
   
-  import mysql.connector
-
+  
 # Select the 5 first records in the "customers" table  
 mydb = mysql.connector.connect(
   host="localhost",
