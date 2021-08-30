@@ -24,8 +24,8 @@ AUTO_REPLY_CONTENT = """
 # except:
 #    print ("Error: unable to fetch the data")
  
-# # 关闭数据库连接
-# finally:
-# #cursor.close()
-# #conn.close()
-#    db.close()
+# 关闭数据库连接
+finally:
+ #cursor.close()
+ #conn.close()
+db.close()
