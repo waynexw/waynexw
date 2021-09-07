@@ -23,3 +23,62 @@ mycursor.executemany(sqlformula, employees)//Passing the data
 mydb.commit()//SQL statement used for saving the changes
 
 db.close
+
+
+# Decide to use json or MySQL database - wayneW.
+with open("./routes/env_conf.json", 'r', encoding='utf-8') as ec:
+    json_data = json.load(ec)
+  # print(json_data)
+DB_TYPE = json_data['DB_TYPE']
+DB_NAME = json_data['DB_NAME']
+
+print(DB_TYPE)
+  print(DB_NAME)
+
+# BOOK_REQUESTS = json_data
+   BOOK_REQUESTS = results
+except:
+   print ("Error: unable to fetch the data")
+
+DB_TYPE = str(os.getenv('dbtype')) # use sys env viriables to set DB_TYPE
+
+initializaed local database via creation a new database
+DB_NAME = "abc"
+DB_NAME = str(os.getenv('dbname'))   
+if DB_NAME == "None":
+    DB_NAME = "text_db"
+
+mydb = mysql.connector.connect(
+  host="127.0.0.1",
+  user="www",  # please adjust the user name as same as the local MySQL's user name  -wayneW
+  password="5566"  # change the password as you defined in your MySQL database  -wayneW
+)
+
+if DB_TYPE == 'mysql':
+  mydb = mysql.connector.connect(
+  host = json_data['host'],
+  port = str(json_data['port']),
+  user = str(json_data['user']), 
+  password = str(json_data['password']),
+  charset = str(json_data['charset'])
+  )
+
+  mycursor = mydb.cursor()
+  sql = "show databases;"  # get the mysql database list.
+  mycursor.execute(sql)
+  results = mycursor.fetchall()
+  db_exist = 'no'    # set a variable to save the status of whether the pre-build database exist.
+  num = len(results)
+  tmp = json.dumps(results)
+  tmp = json.loads(tmp)   # format the batabase lists.
+  # print (tmp[0], DB_NAME) note that print result is ['bl_book'] bl_book. But when add[] around DB_NAME, will see the result is ['bl_book'] ['bl_book'], so tmp[i] == [DB_NAME] go right.
+
+  # while statement to check whether the pre-build database name exist in the mysql database lists.  
+  i = 0
+  while i < num:
+    # if tmp[i] == "[" + "'" + DB_NAME + "'" + "]":
+    if tmp[i] == [DB_NAME]:  # 启示 字符串数据自带引号
+      db_exist = 'yes'
+      break
+    i = i + 1
+  # print (db_exist)
