@@ -54,6 +54,8 @@ mydb = mysql.connector.connect(
   password="5566"  # change the password as you defined in your MySQL database  -wayneW
 )
 
+# set env viarables in config.ini to instead
+
 if DB_TYPE == 'mysql':
   mydb = mysql.connector.connect(
   host = json_data['host'],
