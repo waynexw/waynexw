@@ -20,6 +20,5 @@ with open("./routes/env_conf.json", 'r', encoding='utf-8') as ec:
     json_data = json.load(ec)
   # print(json_data)
 # DB_TYPE = json_data['DB_TYPE']
-# DB_NAME = json_data['DB_NAME']
 
 DB_TYPE = str(os.getenv('dbtype')) # use sys env viriables to set DB_TYPE
