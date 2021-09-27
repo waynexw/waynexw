@@ -1,4 +1,4 @@
-# Aim to precreat proper running environment at the client end via creat new database using MySQL, kindly note that the client may need to pre-install the MySQL before using this code. -wayneW
+# To precreat proper running environment at the client end via creat new database using MySQL, kindly note that the client may need to pre-install the MySQL before using this code. -wayneW
 # READ ME: before run app.py, you may help yourself adjust some codes in this file, including line 22, 23, 32 and 33 line as the detailed instruction below. -wayneW
 # Some problem: after you run the app.py successfully, you may annotate line 19 to 60 as you have already created the database, or the app.py cannot run correctly. -wayneW
 
@@ -256,15 +256,6 @@ if DB_TYPE == 'mysql':
 
 # define the database-link parameter. -wayne W
 
-# config = {
-# "host":"127.0.0.1", # 地址
-# "port":3306, # 端口
-# "user":"www", # 用户名
-# "password":"5566", # 密码
-# # "database":"mydb", # 如果通过Python操作MySQL,要指定需要操作的数据库
-# "database":DB_NAME,
-# "charset":"utf8"
-# }
 
 else:
   # # get the data from local json file. -wayne W
@@ -338,4 +329,3 @@ def get_records():
           BOOK_REQUESTS = json_data
           return jsonify(BOOK_REQUESTS)
           f.close
-
