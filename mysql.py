@@ -1,4 +1,5 @@
-# info of mysql connection.
+# info of mysql connection. pip3 install mysql_connector_python
+
 import mysql.connector
 mydb=mysql.connector.connect(host="localhost",user="root",passwd="password123") 
 print(mydb)
