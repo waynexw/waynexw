@@ -1,4 +1,4 @@
-# drop tables
+# Drop tables via mysql
 import mysql.connector
 
 mydb = mysql.connector.connect(
@@ -14,8 +14,8 @@ sql = "DROP TABLE IF EXISTS customers"
 
 mycursor.execute(sql)
 
-# update data
-
+# Update datas
+import mysql.connector
 mydb = mysql.connector.connect(
   host="localhost",
   user="yourusername",
