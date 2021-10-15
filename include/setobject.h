@@ -3,7 +3,7 @@
 //     Py_hash_t hash;             /* Cached hash code of the key */
 // } setentry;
 
-# Join users and products to see the name of the users favorite product:
+# Join users and products to see the name of the users' favorite product:
 import mysql.connector
 
 mydb = mysql.connector.connect(
@@ -56,9 +56,6 @@ val = [
   ('Michael', 'Valley 345'),
   ('Sandy', 'Ocean blvd 2'),
   ('Betty', 'Green Grass 1'),
-  ('Richard', 'Sky st 331'),
-  ('Susan', 'One way 98'),
-  ('Vicky', 'Yellow Garden 2'),
   ('Ben', 'Park Lane 38'),
   ('William', 'Central st 954'),
   ('Chuck', 'Main Road 989'),
