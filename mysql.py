@@ -1,4 +1,4 @@
-# info of mysql connection. pip3 install mysql_connector_python
+# info of mysql connection. Pip3 install mysql_connector_python
 
 import mysql.connector
 mydb=mysql.connector.connect(host="localhost",user="root",passwd="password123") 
@@ -35,7 +35,7 @@ DB_TYPE = json_data['DB_TYPE']
 DB_NAME = json_data['DB_NAME']
 
 print(DB_TYPE)
-  print(DB_NAME)
+print(DB_NAME)
 
 # BOOK_REQUESTS = json_data
    BOOK_REQUESTS = results
