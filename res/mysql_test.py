@@ -1,4 +1,4 @@
-# Drop tables via mysql database
+# Drop tables by mysql database
 import mysql.connector
 
 mydb = mysql.connector.connect(
