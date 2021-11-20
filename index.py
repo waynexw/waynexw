@@ -1,4 +1,4 @@
-#  page  https://waynexw.github.io/
+#  page is https://waynexw.github.io/
   
 import os
 import uuid
