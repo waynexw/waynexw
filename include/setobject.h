@@ -1,6 +1,6 @@
 // typedef struct {
 //     PyObject *key;
-//     Py_hash_t hash;             /* Cached hash code of key */
+//     Py_hash_t hash;             /* Cached hash the code of key */
 // } setentry;
 
 # Join users and products to see the name of the users' favorate product:
