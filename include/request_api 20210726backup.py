@@ -1,4 +1,4 @@
-# This is a backup version - 2021.7.26
+# This is backup version - 2021.7.26
 """The Endpoints to manage the BOOK_REQUESTS"""
 import uuid
 import json  
