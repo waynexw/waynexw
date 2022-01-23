@@ -1,5 +1,5 @@
 # This is backup version - 2021.7.26
-"""The Endpoints to manage the BOOK_REQUESTS"""
+"""The Endpoints to manage BOOK_REQUESTS"""
 import uuid
 import json  
 import pymysql  # need to install pymysql first -wayne W 
