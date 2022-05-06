@@ -1,4 +1,4 @@
-# pre-creat the proper running environment at the client-end via creat new database by MySQL, kindly note that the client may need to pre-install the MySQL before using this code. -wayneW
+# pre-creat proper running environment at the client-end via creat new database by MySQL, kindly note that the client may need to pre-install the MySQL before using this code. -wayneW
 # READ ME: before run app.py, you may help yourself adjust some codes in this file, including line 22, 23, 32 and 33 line as the detailed instruction below. -wayneW
 # Some problem: after you run the app.py successfully, you may annotate line 19 to 60 as you have already created the database, or the app.py cannot run correctly. -wayneW
 
