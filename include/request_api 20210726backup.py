@@ -14,7 +14,7 @@ def get_blueprint():
     """Return the blueprint for the main app module"""
     return REQUEST_API
 
-# define database-link parameter. -wayne W
+# the define database-link parameter. -wayne W
 config = {
 "host":"127.0.0.1", # 地址
 "port":3306, # 端口
