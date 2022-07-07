@@ -3,7 +3,7 @@
 //     Py_hash_t hash;             /* Cached hash code of key */
 // } setentry;
 
-# Join the users and products to see names of users' favorate product:
+# Join users and products to see names of users' favorate product:
 import mysql.connector
 
 mydb = mysql.connector.connect(
