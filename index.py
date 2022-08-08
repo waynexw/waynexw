@@ -1,9 +1,9 @@
-# The homepage is https://waynexw.github.io/
+# The homepage is  https://waynexw.github.io/
   
 import os
 import uuid
 import json  
-import pymysql  # need to install pymysql first -wayne W
+import pymysql  # need to install pymysql firstly -wayne W
 import mysql.connector 
 from datetime import datetime, timedelta
 from flask import jsonify, abort, request, Blueprint
