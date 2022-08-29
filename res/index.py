@@ -1,4 +1,4 @@
-# How to read the config info file.
+# How to read config info file.
 
 with open("./routes/env_conf.json", 'r', encoding='utf-8') as ec:
     json_data = json.load(ec)
