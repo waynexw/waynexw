@@ -1,5 +1,5 @@
 """Endpoint to manage the BOOK_REQUESTS"""
-# READ ME: before run program by ‘py app.py‘, kindly ensure that your client has already installed the MySQL database (like mysql-installer-web-community editoin) properly, and done with the initialization process.\ 
+# READ ME: before run the program by ‘py app.py‘, kindly ensure that your client has already installed the MySQL database (like mysql-installer-web-community editoin) properly, and done with the initialization process.\ 
 # Also, you may help yourself adjust some codes in this file, including lines 22, 23, 32 and 33 line as the detailed instruction below. -wayneW
 # Some problem: after you run the app.py successfully, you may annotate lines 19 to 60 as you have already created the database, or the app.py cannot run correctly. -wayneW
 import uuid
