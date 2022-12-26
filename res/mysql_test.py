@@ -1,4 +1,4 @@
-# Drop off the tables by the mysql databases
+# Drop off tables by the mysql databases
 import mysql.connector
 
 mydb = mysql.connector.connect(
