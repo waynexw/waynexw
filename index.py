@@ -3,7 +3,7 @@
 import os
 import uuid
 import json  
-import pymysql  # installing the pymysql plug-in firstly requeried-wayne W
+import pymysql  # installing pymysql plug-in firstly requeried-wayne W
 import mysql.connector 
 from datetime import datetime, timedelta
 from flask import jsonify, abort, request, Blueprint
