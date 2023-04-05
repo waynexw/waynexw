@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 AUTO_REPLY_CONTENT = """
 
-# # obtain config data from local json files. -wayneW
+# # obtain the config data from local json files. -wayneW
 # # with open("./routes/data1.json", 'r', encoding='utf-8') as f:
 # # 打开数据库连接
 # db = pymysql.connect(**config)
