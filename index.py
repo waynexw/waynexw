@@ -15,7 +15,7 @@ def get_blueprint():
     """Return the blueprint for the main app module"""
     return REQUEST_API
 
-# Decide to use json or MySQL database - wayneW.
+# Decide to use json or MySQL databases - wayneW.
 with open("./routes/env_conf.json", 'r', encoding='utf-8') as ec:
     json_data = json.load(ec)
   # print(json_data)
