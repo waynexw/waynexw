@@ -1,4 +1,4 @@
-# individual Homepage -  https://waynexw.github.io/
+# the individual Homepage -  https://waynexw.github.io/
   
 import os
 import uuid
