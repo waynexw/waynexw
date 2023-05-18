@@ -17,7 +17,7 @@ def get_blueprint():
     """Return the blueprint for the main app module"""
     return REQUEST_API
 
-# initializaed local database via creation a new database
+# initializaed the local database via creating a new database
 
 mydb = mysql.connector.connect(
   host="127.0.0.1",
