@@ -169,7 +169,7 @@ def create_record():
     sql = "INSERT INTO book_info (`uuid`, `title`, `email`, `timestamp`) VALUES ('" + new_uuid + "', '" + title + "', '" + email + "', '" + timestamp + "');"
     try:
       cursor.execute(sql)
-      db.commit()  #caution 这句非常重要，如果不写，就不会执行插入或更新操作。
+      db.commit()  #caution 这句非常重要，如果不写，就不会执行插入或更新de操作。
       return jsonify({"id": new_uuid}), 201
 
     except:
