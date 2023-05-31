@@ -20,7 +20,7 @@
         const context = canvas.getContext('2d');
 
         // Set up the game state
-        let characterX = 60;
+        let characterX = 20;
         let characterY = 10;
         let score = 0;
         let isGameOver = false;
@@ -145,8 +145,8 @@
         function startGame() {
             startButton.disabled = true;
             restartButton.disabled = true;
-            characterX = 60;
-            characterY = 60;
+            characterX = 20;
+            characterY = 10;
             score = 0;
             isGameOver = false;
             coins.forEach(coin => {
