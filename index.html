@@ -19,8 +19,8 @@
         const context = canvas.getContext('2d');
 
         // Set up the game state
-        let characterX = 200;
-        let characterY = 200;
+        let characterX = 100;
+        let characterY = 100;
         let score = 0;
         let isGameOver = false;
 
@@ -34,7 +34,7 @@
         ];
         const enemies = [
             { x: 150, y: 150, width: 15, height: 15, speedX: 2, speedY: 2 },
-            { x: 250, y: 250, width: 15, height: 15, speedX: -2, speedY: -2 }
+            { x: 250, y: 250, width: 15, height: 15, speedX: -4, speedY: -4 }
         ];
 
         // Add event listener for mouse move
