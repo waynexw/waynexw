@@ -1,7 +1,7 @@
 var canvas;
 var context;
-var width = 400;
-var height = 400;
+var width = 300;
+var height = 300;
 var trans = 220; //canvas.height / 2;
 var radius = trans * 0.90;
 
