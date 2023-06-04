@@ -1,4 +1,3 @@
-//code name=Canvas Clock
 var canvas;
 var context;
 var width = 400;
