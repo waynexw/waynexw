@@ -88,4 +88,3 @@ function drawHand(ctx, pos, length, width) {
     ctx.stroke();
     ctx.rotate(-pos);
 }
-//在下面“表盘_JS”应用中，修改了高度和宽度参数，但是表盘大小并无改变
