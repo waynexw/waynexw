@@ -27,13 +27,24 @@ video.play();
 
 // Draw the text overlay on each frame
 function drawOverlay() {
+  // Clear the canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
   // Draw the video frame on the canvas
   ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
   // Calculate the current frame index
   const frameIndex = Math.floor(video.currentTime * 1000 / frameDuration);
 
-// Iterate over each character in the text
+  // Calculate the position to start drawing the text
+  const startX = 10;
+  const startY = 40;
+
+  // Set the font style and color
+  ctx.font = font;
+  ctx.fillStyle = fontColor;
+
+  // Iterate over each character in the text
   for (let i = 0; i < text.length; i++) {
     // Calculate the position for the current character
     const x = startX + (i * ctx.measureText(text[i]).width);
