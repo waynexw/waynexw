@@ -20,7 +20,7 @@ const fontColor = "rgb(0, 255, 0)"; // Green color
 const highlightColor = "rgb(255, 0, 0)"; // Red color
 
 // Calculate the duration in milliseconds for each character
-const frameDuration = 500; // Half-second duration
+const frameDuration = 1000; // Half-second duration
 
 // Play the video
 video.play();
@@ -40,7 +40,7 @@ function drawOverlay() {
     ctx.fillStyle = (frameIndex >= i) ? highlightColor : fontColor;
 
     // Draw the character at the appropriate position
-    ctx.fillText(text[i], 10, 40);
+    ctx.fillText(text[i], 100, 400);
   }
 
   // Repeat the process on the next frame
