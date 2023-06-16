@@ -14,7 +14,7 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 // Text content and font settings
-const text = "欢迎大家来到漂泊着乐园 一起交流学习";
+const text = "欢迎来到漂泊者乐园一起交流学习";
 const font = "36px Arial";
 const fontColor = "rgb(0, 255, 0)"; // Green color
 const highlightColor = "rgb(255, 0, 0)"; // Red color
@@ -37,8 +37,8 @@ function drawOverlay() {
   const frameIndex = Math.floor(video.currentTime * 1000 / frameDuration);
 
   // Calculate the position to start drawing the text
-  const startX = 10;
-  const startY = 40;
+  const startX = 20;
+  const startY = 340;
 
   // Set the font style and color
   ctx.font = font;
