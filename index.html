@@ -33,14 +33,17 @@ function drawOverlay() {
   // Calculate the current frame index
   const frameIndex = Math.floor(video.currentTime * 1000 / frameDuration);
 
-  // Iterate over each character in the text
+// Iterate over each character in the text
   for (let i = 0; i < text.length; i++) {
-    // Set the font style and color for the character
-    ctx.font = font;
+    // Calculate the position for the current character
+    const x = startX + (i * ctx.measureText(text[i]).width);
+    const y = startY;
+
+    // Set the fill color based on whether the character should be highlighted or not
     ctx.fillStyle = (frameIndex >= i) ? highlightColor : fontColor;
 
     // Draw the character at the appropriate position
-    ctx.fillText(text[i], 30, 350);
+    ctx.fillText(text[i], x, y);
   }
 
   // Repeat the process on the next frame
