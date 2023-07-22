@@ -1,86 +1,59 @@
 <!DOCTYPE html>
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-
-const myElement = (
-  <ul>
-    <li>Apples</li>
-    <li>Bananas</li>
-    <li>Cherries</li>
-  </ul>
-);
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(myElement);
-
 <html>
 <head>
-  <title>Video with Karaoke-style Subtitles</title>
+    <title>Chinese Chess Board</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
-  <video id="video" src="res/mmexport1624376890764.mp4" controls></video>
-  <canvas id="canvas"></canvas>
+    <canvas id="chessboard" width="400" height="400"></canvas>
 
-  <script>
-    // Video and canvas elements
-const video = document.getElementById('video');
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+    <script>
+        // Get the canvas element
+        const canvas = document.getElementById('chessboard');
+        const context = canvas.getContext('2d');
 
-// Text content and font settings
-const text = "欢迎来到漂泊者乐园一起交流学习";
-const font = "35px Arial";
-const fontColor = "rgb(0, 255, 0)"; // Green color
-const highlightColor = "rgb(255, 0, 0)"; // Red color
+        // Define the size of each square on the chessboard
+        const squareSize = canvas.width / 9;
 
-// Calculate the duration in milliseconds for each character
-const frameDuration = 700; // 0.7 second duration
+        // Function to draw the chessboard
+        function drawBoard() {
+            // Clear the canvas
+            context.clearRect(0, 0, canvas.width, canvas.height);
 
-// Play the video
-video.play();
+            // Draw the background
+            context.fillStyle = '#f0d9b5';
+            context.fillRect(0, 0, canvas.width, canvas.height);
 
-// Draw the text overlay on each frame
-function drawOverlay() {
-  // Clear the canvas
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+            // Loop through each row and column to draw the lines
+            for (let row = 0; row < 10; row++) {
+                for (let col = 0; col < 9; col++) {
+                    // Calculate the position of each square
+                    const x = col * squareSize;
+                    const y = row * squareSize;
 
-  // Draw the video frame on the canvas
-  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+                    // Alternate the colors of the squares
+                    if ((row + col) % 2 === 0) {
+                        context.fillStyle = '#e69a66';
+                    } else {
+                        context.fillStyle = '#b37342';
+                    }
 
-  // Calculate the current frame index
-  const frameIndex = Math.floor(video.currentTime * 1000 / frameDuration);
+                    // Draw each square
+                    context.fillRect(x, y, squareSize, squareSize);
 
-  // Calculate the position to start drawing the text
-  const startX = 50;
-  const startY = 350;
+                    // Draw the border of the chessboard
+                    context.strokeStyle = 'black';
+                    context.strokeRect(x, y, squareSize, squareSize);
+                }
+            }
+        }
 
-  // Set the font style and color
-  ctx.font = font;
-  ctx.fillStyle = fontColor;
-
-  // Iterate over each character in the text
-  for (let i = 0; i < text.length; i++) {
-    // Calculate the position for the current character
-    const x = startX + (i * ctx.measureText(text[i]).width);
-    const y = startY;
-
-    // Set the fill color based on whether the character should be highlighted or not
-    ctx.fillStyle = (frameIndex >= i) ? highlightColor : fontColor;
-
-    // Draw the character at the appropriate position
-    ctx.fillText(text[i], x, y);
-  }
-
-  // Repeat the process on the next frame
-  requestAnimationFrame(drawOverlay);
-}
-
-// Start drawing the overlay
-video.addEventListener('play', () => {
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-  drawOverlay();
-});
-  </script>
+        // Call the function to draw the chessboard
+        drawBoard();
+    </script>
 </body>
 </html>
