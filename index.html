@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Chinese Chess Board v2</title>
+    <title>Chinese Chess Board</title>
     <style>
         canvas {
             border: 1px solid black;
@@ -48,8 +48,34 @@
                     // Draw the border of the chessboard
                     context.strokeStyle = 'black';
                     context.strokeRect(x, y, squareSize, squareSize);
+
+                    // Draw chess pieces
+                    const piece = getChessPiece(row, col);
+                    if (piece !== '') {
+                        context.fillStyle = 'black';
+                        context.font = '32px Arial';
+                        context.fillText(piece, x + squareSize / 2 - 12, y + squareSize / 2 + 12);
+                    }
                 }
             }
+        }
+
+        // Function to get the chess piece at a given position on the chessboard
+        function getChessPiece(row, col) {
+            // Define the initial chess pieces
+            const initialState = [
+                ['车', '马', '象', '士', '将', '士', '象', '马', '车'],
+                ['', '', '', '', '', '', '', '', ''],
+                ['', '炮', '', '', '', '', '', '炮', ''],
+                ['卒', '', '卒', '', '卒', '', '卒', '', '卒'],
+                ['', '', '', '', '', '', '', '', ''],
+                ['', '', '', '', '', '', '', '', ''],
+                ['兵', '', '兵', '', '兵', '', '兵', '', '兵'],
+                ['', '砲', '', '', '', '', '', '砲', ''],
+                ['', '', '', '', '', '', '', '', '']
+            ];
+
+            return initialState[row][col];
         }
 
         // Call the function to draw the chessboard
