@@ -9,7 +9,7 @@
     </style>
 </head>
 <body>
-    <canvas id="chessboard" width="400" height="440"></canvas>
+    <canvas id="chessboard" width="400" height="440"></canvas> //origin height=400
 
     <script>
         // Get the canvas element
@@ -29,7 +29,7 @@
             context.fillRect(0, 0, canvas.width, canvas.height);
 
             // Loop through each row and column to draw the lines
-            for (let row = 0; row < 12; row++) {
+            for (let row = 0; row < 12; row++) { //origin row<11
                 for (let col = 0; col < 10; col++) {
                     // Calculate the position of each square
                     const x = col * squareSize;
