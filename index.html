@@ -13,14 +13,14 @@
     <button onclick="handleFileInput()">Choose Files</button>
     <button onclick="extractImages()">Extract Images</button>
 
-    <script>
+    <script type="module">
         let pdfData;
 
-        function handleFileInput() {
+        async function handleFileInput() {
             const fileInput = document.getElementById('fileInput');
             fileInput.click();
 
-            fileInput.addEventListener('change', (event) => {
+            fileInput.addEventListener('change', async (event) => {
                 const selectedFile = event.target.files[0];
                 if (selectedFile) {
                     const fileReader = new FileReader();
@@ -40,30 +40,34 @@
                 return;
             }
 
-            const pdf = await pdfjsLib.getDocument(pdfData).promise;
-            const totalPages = pdf.numPages;
+            try {
+                const pdf = await pdfjsLib.getDocument(pdfData).promise;
+                const totalPages = pdf.numPages;
 
-            for (let pageNumber = 1; pageNumber <= totalPages; pageNumber++) {
-                const page = await pdf.getPage(pageNumber);
-                const viewport = page.getViewport({ scale: 1.0 });
+                for (let pageNumber = 1; pageNumber <= totalPages; pageNumber++) {
+                    const page = await pdf.getPage(pageNumber);
+                    const viewport = page.getViewport({ scale: 1.0 });
 
-                const canvas = document.createElement('canvas');
-                const context = canvas.getContext('2d');
-                canvas.width = viewport.width;
-                canvas.height = viewport.height;
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.width = viewport.width;
+                    canvas.height = viewport.height;
 
-                const renderContext = {
-                    canvasContext: context,
-                    viewport: viewport,
-                };
+                    const renderContext = {
+                        canvasContext: context,
+                        viewport: viewport,
+                    };
 
-                await page.render(renderContext).promise;
+                    await page.render(renderContext).promise;
 
-                // Convert the canvas content to a data URL representing a JPEG image
-                const imageDataUrl = canvas.toDataURL('image/jpeg');
+                    // Convert the canvas content to a data URL representing a JPEG image
+                    const imageDataUrl = canvas.toDataURL('image/jpeg');
 
-                // Display the image URL (you can save it or do further processing)
-                console.log('Image Data URL for Page', pageNumber, ':', imageDataUrl);
+                    // Display the image URL (you can save it or do further processing)
+                    console.log('Image Data URL for Page', pageNumber, ':', imageDataUrl);
+                }
+            } catch (error) {
+                console.error('Error extracting images:', error);
             }
         }
     </script>
