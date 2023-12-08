@@ -6,11 +6,13 @@
     <title>PDF Image Extractor</title>
 </head>
 <body>
-    <h1>PDF Image Extractor v0.1</h1>
+    <h1>PDF Image Extractor v0.2</h1>
 
     <input type="file" id="fileInput" accept=".pdf" />
     <button onclick="handleFileInput()">Choose Files</button>
     <button onclick="extractImages()">Extract Images</button>
+
+    <div id="imageContainer"></div>
 
     <script>
         let pdfData;
@@ -58,6 +60,9 @@
 
             await loadPdfJs();
 
+            const imageContainer = document.getElementById('imageContainer');
+            imageContainer.innerHTML = ''; // Clear previous images
+
             try {
                 const pdf = await pdfjsLib.getDocument({ data: pdfData }).promise;
                 const totalPages = pdf.numPages;
@@ -81,8 +86,10 @@
                     // Convert the canvas content to a data URL representing a JPEG image
                     const imageDataUrl = canvas.toDataURL('image/jpeg');
 
-                    // Display the image URL (you can save it or do further processing)
-                    console.log('Image Data URL for Page', pageNumber, ':', imageDataUrl);
+                    // Create an image element and append it to the container
+                    const image = document.createElement('img');
+                    image.src = imageDataUrl;
+                    imageContainer.appendChild(image);
                 }
             } catch (error) {
                 console.error('Error extracting images:', error);
