@@ -3,60 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module">
-        import pyodide from 'https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js';
+    <title>PDF Image Extractor</title>
+    <script type="module" src="https://unpkg.com/pdfjs-dist@2.12.313/build/pdf.js"></script>
+</head>
+<body>
+    <h1>PDF Image Extractor</h1>
 
-        // Function to extract images
-        async function extractImages(pdfData) {
-            await pyodide.loadPackage(['PyPDF2']);
+    <input type="file" id="fileInput" accept=".pdf" />
+    <button onclick="handleFileInput()">Choose Files</button>
+    <button onclick="extractImages()">Extract Images</button>
 
-            // Execute Python code
-            const result = await pyodide.runPythonAsync(`
-                import PyPDF2
+    <script>
+        let pdfData;
 
-                # Your Python code here
-                # Extract images from the PDF file
-                def extract_images(pdf_data):
-                    # Implement your logic using PyPDF2 or another library
-                    # For demonstration, let's assume you have a function named extract_images_from_pdf.
-                    # Replace this with your actual image extraction logic.
-                    return []
-
-                pdf_data = ${JSON.stringify(pdfData)}
-                images = extract_images(pdf_data)
-                images
-            `);
-
-            // Handle the result (list of images)
-            console.log('Images:', result);
-        }
-
-        // Function to handle file input
         function handleFileInput() {
             const fileInput = document.getElementById('fileInput');
             fileInput.click();
 
-            fileInput.addEventListener('change', async (event) => {
+            fileInput.addEventListener('change', (event) => {
                 const selectedFile = event.target.files[0];
                 if (selectedFile) {
                     const fileReader = new FileReader();
 
                     fileReader.onload = (e) => {
-                        const pdfData = new Uint8Array(e.target.result);
-                        extractImages(pdfData);
+                        pdfData = new Uint8Array(e.target.result);
                     };
 
                     fileReader.readAsArrayBuffer(selectedFile);
                 }
             });
         }
+
+        async function extractImages() {
+            if (!pdfData) {
+                console.error('Please choose a PDF file first.');
+                return;
+            }
+
+            const pdf = await pdfjsLib.getDocument(pdfData).promise;
+            const totalPages = pdf.numPages;
+
+            for (let pageNumber = 1; pageNumber <= totalPages; pageNumber++) {
+                const page = await pdf.getPage(pageNumber);
+                const viewport = page.getViewport({ scale: 1.0 });
+
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+
+                const renderContext = {
+                    canvasContext: context,
+                    viewport: viewport,
+                };
+
+                await page.render(renderContext).promise;
+
+                // Convert the canvas content to a data URL representing a JPEG image
+                const imageDataUrl = canvas.toDataURL('image/jpeg');
+
+                // Display the image URL (you can save it or do further processing)
+                console.log('Image Data URL for Page', pageNumber, ':', imageDataUrl);
+            }
+        }
     </script>
-</head>
-<body>
-    <h1>PDF Image Extractor</h1>
-
-    <input type="file" id="fileInput" accept=".pdf" style="display: none;" />
-    <button onclick="handleFileInput()">Choose Files</button>
-
 </body>
 </html>
