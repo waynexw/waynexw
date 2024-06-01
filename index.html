@@ -6,7 +6,7 @@
     <title>Sparkling Tools</title>
 </head>
 <body>
-    <h1>Option Onee. PDF Image Extractor v0.36</h1>
+    <h1>Option 1. PDF Image Extractor v0.36</h1>
 
     <input type="file" input type="hidden" id="fileInput" accept=".pdf" />
     <button onclick="handleFileInput()">Choose Files</button>
@@ -96,9 +96,30 @@
             }
         }
     </script>
-    <h1>Option Two. Word Cloud Generator</h1>
+    <h1>Option 2. Word Cloud Generator</h1>
     <form action="/generate" method="post">
         <label for="words">Words (comma-separated):</label><br>
+        <textarea id="words" name="words" rows="4" cols="50"></textarea><br>
+        <label for="weights">Weights (comma-separated):</label><br>
+        <textarea id="weights" name="weights" rows="4" cols="50"></textarea><br>
+        <input type="submit" value="Generate Word Cloud">
+    </form>
+    <div id="wordcloud"></div>
+    <script>
+        document.querySelector('form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const response = await fetch('/generate', {
+                method: 'POST',
+                body: formData
+            });
+            const image = await response.text();
+            document.getElementById('wordcloud').innerHTML = image;
+        });
+    </script>
+    <h1>Option 3. QR Code Genarator</h1>
+    <form action="/generate" method="post">
+        <label for="words">Input the content you want to be QR code</label><br>
         <textarea id="words" name="words" rows="4" cols="50"></textarea><br>
         <label for="weights">Weights (comma-separated):</label><br>
         <textarea id="weights" name="weights" rows="4" cols="50"></textarea><br>
